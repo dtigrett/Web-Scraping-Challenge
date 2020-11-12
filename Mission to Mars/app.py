@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 
 # Create route that renders index.html template and finds documents from mongo
 @app.route("/")
-def home(): 
+def index(): 
 
     # Find data
     mars_info = mongo.db.mars_info.find_one()
