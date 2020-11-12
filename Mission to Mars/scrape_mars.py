@@ -11,7 +11,7 @@ import pandas as pd
 import time
 
 def init_browser():
-    # Setting up windows browser with chromedriver
+    # Set up browser with chromedriver
     
     executable_path = {'executable_path':'C:\webdrivers\chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -21,7 +21,7 @@ def init_browser():
 # In[8]:
 
 
-# Create Mission to Mars dictionary that can be imported into Mongo
+#  Mission to Mars dictionary that can be imported into Mongo
 mars_info = {}
 
 
@@ -29,7 +29,7 @@ mars_info = {}
 
 
 
-# NASA MARS NEWS
+#  MARS NEWS
 def scrape_mars_news():
     try: 
 
@@ -38,18 +38,18 @@ def scrape_mars_news():
 
     
 
-        # Visit Nasa news url through splinter module
+        # Visit Nasa url through splinter 
         url = 'https://mars.nasa.gov/news/'
         browser.visit(url)
 
         # HTML Object
         html = browser.html
 
-        # Parse HTML with Beautiful Soup
+        # Parse HTML with bs
         soup = bs(html, 'html.parser')
 
         time.sleep(1)
-        # Get the latest element that contains news title and news_paragraph
+        # Get the latest  news_title and news_p
         try:
             news_title = soup.find('div', class_='content_title').find('a').text
         except:
@@ -91,7 +91,7 @@ def scrape_mars_image():
         # HTML Object 
         html_image = browser.html
 
-        # Parse HTML with BS
+        # Parse HTML with bs
         soup = bs(html_image, 'html.parser')
 
         # Retrieve background-image url  
